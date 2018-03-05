@@ -15,3 +15,5 @@ data$Time<- format(strptime(data$Time,"%H:%M:%S"),"%H:%M:%S")
 # get a required subset of data from 2007-02-01 till 2007-02-02
 
 sample<-filter(data,data$Date>=as.Date("2007-02-01")&data$Date<=as.Date("2007-02-02"))
+
+
