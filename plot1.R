@@ -21,7 +21,9 @@ sample<-filter(data,data$Date>=as.Date("2007-02-01")&data$Date<=as.Date("2007-02
 
 ## call a function hist() to create a histogram with specified title and x-axis
 hist(sample$Global_active_power, col="red",main="Global Active Power",xlab = "Global Active Power (kilowatts)")
+
 ## copy the histogram to a png file
 dev.copy(png,file="plot1.png",width=480,height=480)
+
 ## close the png device
 dev.off()
