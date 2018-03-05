@@ -21,31 +21,18 @@ data$days<-weekdays(data$Date,abbreviate=TRUE)
 
 sample<-filter(data,data$Date>=as.Date("2007-02-01")&data$Date<=as.Date("2007-02-02"))
 
-
-# Plot 1
-
-## call a function hist() to create a histogram with specified title and x-axis
-hist(sample$Global_active_power, col="red",main="Global Active Power",xlab = "Global Active Power (kilowatts)")
-## copy the histogram to a png file
-dev.copy(png,file="plot1.png",width=480,height=480)
-## close the png device
-dev.off()
-
-# Plot 2
-
+# Plot 3
+## open a png device
+png(file="plot3.png",width=480,height=480)
 ## call a function hist() to create a histogram with y-axis label and no x-axis labels
-plot(sample$Global_active_power, ylab = "Global Active Power (kilowatts)",xlab="",type = "l",xaxt = 'n')
-# annoteting the plot by adding the days of the week on the x-axis of the plot
+plot(sample$Sub_metering_1, ylab = "Energy sub metering",xlab="",type = "l",xaxt = 'n',col="black")
+lines(sample$Sub_metering_2,col="red",type="l")
+lines(sample$Sub_metering_3,col="blue",type="l")
+# annotating the plot by adding the days of the week on the x-axis of the plot
 step<-sum(sample$days == "Fri")-1
 lengthframe<-nrow(sample)
 axis(1,at=seq(1, lengthframe, by=step),labels=list("Thu","Fri","Sat"))
-## copy the histogram to a png file
-dev.copy(png,file="plot2.png",width=480,height=480)
+legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), col=c("black","red","blue"),lty=c(1,1,1), ncol=1,trace = TRUE)
+
 ## close the png device
 dev.off()
-
-
-# Plot 3
-
-
-# Plot 4
