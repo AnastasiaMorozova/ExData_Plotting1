@@ -27,7 +27,7 @@ sample<-filter(data,data$Date>=as.Date("2007-02-01")&data$Date<=as.Date("2007-02
 ## call a function hist() to create a histogram with y-axis label and no x-axis labels
 plot(sample$Global_active_power, ylab = "Global Active Power (kilowatts)",xlab="",type = "l",xaxt = 'n')
 
-# annoteting the plot by adding the days of the week on the x-axis of the plot
+# annotating the plot by adding the days of the week on the x-axis of the plot
 step<-sum(sample$days == "Fri")-1
 lengthframe<-nrow(sample)
 axis(1,at=seq(1, lengthframe, by=step),labels=list("Thu","Fri","Sat"))
