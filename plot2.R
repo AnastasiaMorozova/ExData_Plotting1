@@ -13,7 +13,7 @@ data<-as.data.frame(data)
 # convert date and time in the right format
 data$Date<-as.Date(data$Date, "%d/%m/%Y")
 data$Time<- format(strptime(data$Time,"%H:%M:%S"),"%H:%M:%S")
-#add a column
+#add a column of the days of the week
 data$days<-weekdays(data$Date,abbreviate=TRUE)
 
 
